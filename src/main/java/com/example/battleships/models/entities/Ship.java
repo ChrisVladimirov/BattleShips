@@ -11,25 +11,23 @@ public class Ship {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String name;
 
     @Column(nullable = false)
     private long health;
 
     @Column(nullable = false)
-    private long powers;
+    private long power;
 
     @Column(nullable = false)
     private LocalDate created;
-
-    @Column(nullable = false)
 
     @ManyToOne
     private Category category;
 
     @ManyToOne
-    private User owner;
+    private User user;
 
     public Ship() {
     }
@@ -56,12 +54,12 @@ public class Ship {
         return this;
     }
 
-    public long getPowers() {
-        return powers;
+    public long getPower() {
+        return power;
     }
 
-    public Ship setPowers(long powers) {
-        this.powers = powers;
+    public Ship setPower(long powers) {
+        this.power = powers;
         return this;
     }
 
@@ -83,12 +81,12 @@ public class Ship {
         return this;
     }
 
-    public User getOwner() {
-        return owner;
+    public User getUser() {
+        return user;
     }
 
-    public Ship setOwner(User owner) {
-        this.owner = owner;
+    public Ship setUser(User owner) {
+        this.user = owner;
         return this;
     }
 }
