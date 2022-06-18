@@ -11,14 +11,14 @@ public class Ship {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(nullable = false, unique = true)
+    @Column(nullable = false)
     private String name;
 
     @Column(nullable = false)
     private long health;
 
     @Column(nullable = false)
-    private long power;
+    private long powers;
 
     @Column(nullable = false)
     private LocalDate created;
@@ -54,12 +54,12 @@ public class Ship {
         return this;
     }
 
-    public long getPower() {
-        return power;
+    public long getPowers() {
+        return powers;
     }
 
-    public Ship setPower(long powers) {
-        this.power = powers;
+    public Ship setPowers(long powers) {
+        this.powers = powers;
         return this;
     }
 

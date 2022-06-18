@@ -1,8 +1,6 @@
 package com.example.battleships.models.entities;
 
 import javax.persistence.*;
-import java.util.ArrayList;
-import java.util.List;
 
 @Entity
 @Table(name = "users")
@@ -21,11 +19,7 @@ public class User {
     @Column(nullable = false, unique = true)
     private String email;
 
-    @OneToMany(mappedBy = "user")
-    private List<Ship> ships;
-
     public User() {
-        this.ships = new ArrayList<>();
     }
 
     public long getId() {
@@ -65,15 +59,6 @@ public class User {
 
     public User setEmail(String email) {
         this.email = email;
-        return this;
-    }
-
-    public List<Ship> getShips() {
-        return ships;
-    }
-
-    public User setShips(List<Ship> ships) {
-        this.ships = ships;
         return this;
     }
 }
