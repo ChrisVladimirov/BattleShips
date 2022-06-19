@@ -2,19 +2,21 @@ package com.example.battleships.models.DTOs;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
 public class UserRegisterDTO {
 
-    @NotBlank
-    @Size(min = 3, max = 10)
+    @NotBlank(message = "Username cannot be empty.")
+    @Size(min = 3, max = 10, message = "Username length must be between 5 and 20 characters.")
     private String username;
     @NotBlank
     @Size(min = 5, max = 20)
     private String fullName;
 
-    @Email(regexp = "(\\w+)@(\\w+).(\\w+)")
+    @Email
     @NotBlank
+    @Pattern(regexp = "(\\w+)@(\\w+).(\\w+)")
     private String email;
 
     @NotBlank
