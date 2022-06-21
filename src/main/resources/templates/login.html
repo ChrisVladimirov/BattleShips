@@ -9,9 +9,9 @@
     <link rel="stylesheet" href="/css/style.css"/>
 </head>
 <body class="body-main">
-<header>
-    <th:block th:include="~{fragments/navbar}"></th:block>
-</header>
+
+<header th:include="~{fragments/navbar}"></header>
+
 <main role="main">
     <div class="jumbotron">
         <div class="container text-light ">
@@ -23,7 +23,7 @@
                 <div class="container bg-blur rounded p-5 mt-5 w-75 ">
 
                     <form
-                            th:action="@{users/login}"
+                            th:action="@{/login}"
                             th:method="post"
                             th:object="${loginDTO}"
                             class="text-center text-light">
