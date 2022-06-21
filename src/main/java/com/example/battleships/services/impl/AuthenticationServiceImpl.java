@@ -55,13 +55,13 @@ public class AuthenticationServiceImpl implements AuthenticationService {
 
     @Override
     public boolean login(UserLoginDTO loginDTO) {
-        Optional<User> byUsernameAndEmail = this.userRepository
-                .findByUsernameAndEmail(loginDTO.getUsername(), loginDTO.getPassword());
-        if (byUsernameAndEmail.isEmpty()) {
+        Optional<User> byUsernameAndPassword = this.userRepository
+                .findByUsernameAndPassword(loginDTO.getUsername(), loginDTO.getPassword());
+        if (byUsernameAndPassword.isEmpty()) {
             return false;
         }
 
-        this.userSession.login(byUsernameAndEmail.get());
+        this.userSession.login(byUsernameAndPassword.get());
         return true;
     }
 }

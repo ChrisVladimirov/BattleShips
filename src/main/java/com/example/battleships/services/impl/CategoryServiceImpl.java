@@ -36,4 +36,18 @@ public class CategoryServiceImpl implements CategoryService {
             this.categoryRepository.save(category);
         });
     }
+
+    @Override
+    public Category getCategory(ShipType categoryName) {
+        return this.categoryRepository.findByName(categoryName).orElse(null);
+    }
 }
+/*
+Alternative solution for the init() method:
+if (this.categoryRepository.count() == 0) {
+            List<Category> categories = Arrays.stream(ShipType.values())
+                    .map(Category::new)
+                    .collect(Collectors.toList());
+
+            this.categoryRepository.saveAll(categories);
+        }*/
