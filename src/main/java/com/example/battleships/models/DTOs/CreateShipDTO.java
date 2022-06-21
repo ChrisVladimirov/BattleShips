@@ -18,7 +18,7 @@ public class CreateShipDTO {
     @Positive
     private long health;
 
-    @Future
+    @PastOrPresent
     private LocalDate created;
 
     @NotNull
