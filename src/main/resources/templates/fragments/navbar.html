@@ -1,31 +1,38 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
 <nav class="navbar navbar-expand-md navbar-dark fixed-top  rounded">
-  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="/">Home</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/">Login</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/">Register</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/">Add Ship</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="/">Logout</a>
-      </li>
-    </ul>
-    <img width="50px" src="/images/ufo.png" alt="Ufo image">
-  </div>
+    <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="/">Home</a>
+            </li>
+            <th:block th:if="${@loggedUser.id == 0}">
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/register">Register</a>
+                </li>
+            </th:block>
+            <th:block th:if="${@loggedUser.id > 0}">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/ships/add">Add Ship</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Logout</a>
+                </li>
+            </th:block>
+        </ul>
+        <img width="50px" src="/images/ufo.png" alt="Ufo image">
+    </div>
 </nav>
 </body>
 </html>
