@@ -1,6 +1,10 @@
 package com.example.battleships.web;
 
 import com.example.battleships.models.DTOs.CreateShipDTO;
+import com.example.battleships.models.entities.Ship;
+import com.example.battleships.services.ShipService;
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,6 +16,12 @@ import javax.validation.Valid;
 
 @Controller
 public class ShipController {
+
+    private final ShipService shipService;
+    @Autowired
+    public ShipController(ShipService shipService) {
+        this.shipService = shipService;
+    }
 
     @ModelAttribute("createShipDTO")
     public CreateShipDTO initCreateShipDTO() {
@@ -34,6 +44,7 @@ public class ShipController {
                             bindingResult);
             return "redirect:/ships/add";
         }
+        this.shipService.addShip(createShipDTO);
         return "redirect:/home";
     }
 }
