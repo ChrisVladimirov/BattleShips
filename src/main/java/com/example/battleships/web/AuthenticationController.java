@@ -9,6 +9,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.validation.Valid;
@@ -43,7 +44,7 @@ public class AuthenticationController {
 
             return "redirect:/register";
         }
-
+        this.authenticationService.register(registrationDTO);
         return "redirect:/login";
     }
 
@@ -73,8 +74,14 @@ public class AuthenticationController {
                     .addFlashAttribute("badCredentials", true);
             return "redirect:/login";
         }
+
+        this.authenticationService.login(loginDTO);
         return "redirect:/home";
     }
 
-
+    @PostMapping("/logout")
+    public String logout() {
+        this.authenticationService.logout();
+        return "redirect:/";
+    }
 }

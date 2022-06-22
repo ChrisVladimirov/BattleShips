@@ -8,4 +8,6 @@ public interface AuthenticationService {
     boolean register(UserRegisterDTO userRegisterDTO);
 
     boolean login(UserLoginDTO loginDTO);
+
+    void logout();
 }
