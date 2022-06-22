@@ -1,4 +1,4 @@
-package com.example.battleships.models.DTOs;
+package com.example.battleships.models.DTOs.dataImport;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;

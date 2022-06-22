@@ -1,7 +1,7 @@
 package com.example.battleships.services.impl;
 
-import com.example.battleships.models.DTOs.UserLoginDTO;
-import com.example.battleships.models.DTOs.UserRegisterDTO;
+import com.example.battleships.models.DTOs.dataImport.UserLoginDTO;
+import com.example.battleships.models.DTOs.dataImport.UserRegisterDTO;
 import com.example.battleships.models.entities.User;
 import com.example.battleships.repositories.UserRepository;
 import com.example.battleships.services.AuthenticationService;

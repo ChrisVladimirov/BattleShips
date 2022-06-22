@@ -1,6 +1,5 @@
-package com.example.battleships.models.DTOs;
+package com.example.battleships.models.DTOs.dataImport;
 
-import com.example.battleships.models.entities.Category;
 import com.example.battleships.models.enums.ShipType;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -14,7 +13,7 @@ public class CreateShipDTO {
     private String name;
 
     @Positive
-    private long power;
+    private long powers;
 
     @Positive
     private long health;
@@ -35,12 +34,12 @@ public class CreateShipDTO {
         return this;
     }
 
-    public long getPower() {
-        return power;
+    public long getPowers() {
+        return powers;
     }
 
-    public CreateShipDTO setPower(long power) {
-        this.power = power;
+    public CreateShipDTO setPowers(long powers) {
+        this.powers = powers;
         return this;
     }
 

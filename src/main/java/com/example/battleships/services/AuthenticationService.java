@@ -1,7 +1,7 @@
 package com.example.battleships.services;
 
-import com.example.battleships.models.DTOs.UserLoginDTO;
-import com.example.battleships.models.DTOs.UserRegisterDTO;
+import com.example.battleships.models.DTOs.dataImport.UserLoginDTO;
+import com.example.battleships.models.DTOs.dataImport.UserRegisterDTO;
 
 public interface AuthenticationService {
 

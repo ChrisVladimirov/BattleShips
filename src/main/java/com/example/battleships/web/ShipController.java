@@ -1,6 +1,6 @@
 package com.example.battleships.web;
 
-import com.example.battleships.models.DTOs.CreateShipDTO;
+import com.example.battleships.models.DTOs.dataImport.CreateShipDTO;
 import com.example.battleships.services.ShipService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

@@ -54,7 +54,7 @@ public class Ship {
         return this;
     }
 
-    public long getPowers() {
+    public long getPower() {
         return powers;
     }
 
