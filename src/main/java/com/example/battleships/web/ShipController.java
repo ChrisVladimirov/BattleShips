@@ -1,9 +1,7 @@
 package com.example.battleships.web;
 
 import com.example.battleships.models.DTOs.CreateShipDTO;
-import com.example.battleships.models.entities.Ship;
 import com.example.battleships.services.ShipService;
-import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
@@ -37,14 +35,14 @@ public class ShipController {
     public String ships(@Valid CreateShipDTO createShipDTO, BindingResult bindingResult,
                         RedirectAttributes redAtrs) {
 
-        if (bindingResult.hasErrors()) {
+        if (bindingResult.hasErrors() || !this.shipService.addShip(createShipDTO)) {
             redAtrs.addFlashAttribute("createShipDTO", createShipDTO);
             redAtrs.addFlashAttribute
                     ("com.springframework.validation.BindingResult.createShipDTO",
                             bindingResult);
             return "redirect:/ships/add";
         }
-        this.shipService.addShip(createShipDTO);
+
         return "redirect:/home";
     }
 }

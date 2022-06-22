@@ -2,7 +2,9 @@ package com.example.battleships.services;
 
 import com.example.battleships.models.entities.User;
 
+import java.util.Optional;
+
 public interface UserService {
 
-    User getUserById(long id);
+    Optional<User> getUserById(long id);
 }
