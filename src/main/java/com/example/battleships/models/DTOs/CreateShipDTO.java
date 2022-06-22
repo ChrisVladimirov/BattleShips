@@ -2,6 +2,7 @@ package com.example.battleships.models.DTOs;
 
 import com.example.battleships.models.entities.Category;
 import com.example.battleships.models.enums.ShipType;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.validation.constraints.*;
 import java.time.LocalDate;
@@ -19,6 +20,7 @@ public class CreateShipDTO {
     private long health;
 
     @PastOrPresent
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate created;
 
     @NotNull
