@@ -74,8 +74,15 @@ public class ShipServiceImpl implements ShipService {
     }
 
     @Override
-    public List<ShipViewDTO> getShipsOrdered(Long id) {
+    public List<ShipViewDTO> getOwnShipsOrdered(Long id) {
         return this.shipRepository.getByUser_Id(id).stream()
+                .map(ship -> this.modelMapper.map(ship, ShipViewDTO.class))
+                .collect(Collectors.toList());
+    }
+
+    @Override
+    public List<ShipViewDTO> getOtherShipsOrdered(Long id) {
+        return this.shipRepository.getByUser_IdNot(id).stream()
                 .map(ship -> this.modelMapper.map(ship, ShipViewDTO.class))
                 .collect(Collectors.toList());
     }

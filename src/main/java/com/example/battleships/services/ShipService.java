@@ -13,5 +13,7 @@ public interface ShipService {
 
     List<ShipViewDTO> visualiseAll();
 
-    List<ShipViewDTO> getShipsOrdered(Long id);
+    List<ShipViewDTO> getOwnShipsOrdered(Long id);
+
+    List<ShipViewDTO> getOtherShipsOrdered(Long id);
 }

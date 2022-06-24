@@ -37,8 +37,8 @@ public class HomeController {
             return "redirect:/";
         }
         model.addAttribute("currentUserShips",
-                this.shipService.getShipsOrdered(this.loggedUser.getId()));
-        model.addAttribute("otherUserShips", this.shipService.getShipsOrdered(2L));
+                this.shipService.getOwnShipsOrdered(this.loggedUser.getId()));
+        model.addAttribute("otherUserShips", this.shipService.getOtherShipsOrdered(this.loggedUser.getId()));
         model.addAttribute("allShips", this.shipService.visualiseAll());
         return "home";
     }
